@@ -1,0 +1,50 @@
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100vh;
+    background-color: #272727;
+}
+
+.note {
+    position: absolute;
+    top: 10px;
+    left: 600px;
+    width: 500px;
+    height: 300px;
+    border: 1.5px solid white;
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    height: 25px;
+    width: 100%;
+    border-bottom: 1.5px solid white;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 20px;
+    text-align: center;
+    color: white;
+}
+
+.resize {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    border-left: 1.5px solid white;
+    border-top: 1.5px solid white;
+}
