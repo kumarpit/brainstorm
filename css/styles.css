@@ -15,7 +15,7 @@
     --clr-icon: rgba(0, 0, 0, 1);
     --sz-menu-height: 22px;
     --sz-resize: 10px;
-    --sz-border: 2px;
+    --sz-border: 1px;
 }
 
 main {
@@ -46,7 +46,7 @@ canvas {
     left: 10px;
     width: 200px;
     height: 300px;
-    border: var(--sz-border) solid var(--clr-dark);
+    border: 1px solid var(--clr-dark);
     border-radius: 7px;
     /* box-shadow: var(--clr-shadow) 3px 3px 10px; */
     background-color: var(--clr-light);
