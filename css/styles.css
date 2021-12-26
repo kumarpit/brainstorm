@@ -12,7 +12,7 @@
     --clr-text: rgba(0, 0, 0, 1);
     --clr-bg: white;
     --clr-shadow: rgba(0, 0, 0, 0.15);
-    --clr-icon: rgba(0, 0, 0, 0.4);
+    --clr-icon: rgba(0, 0, 0, 0.5);
     --sz-menu-height: 22px;
     --sz-resize: 20px;
     --sz-border: 2px;
@@ -78,7 +78,7 @@ main {
     outline: none;
     border: none;
     font-size: 14px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .resize {
