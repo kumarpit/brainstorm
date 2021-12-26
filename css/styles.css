@@ -8,14 +8,14 @@
 
 :root {
     --clr-light: rgba(255, 255, 255, 1);
-    --clr-dark: rgba(0, 0, 0, 1);
+    --clr-dark: rgba(0, 0, 0, 0.7);
     --clr-text: rgba(0, 0, 0, 1);
     --clr-bg: white;
     --clr-shadow: rgba(0, 0, 0, 0.15);
-    --clr-icon: rgba(0, 0, 0, 1);
+    --clr-icon: rgba(0, 0, 0, 0.7);
     --sz-menu-height: 22px;
     --sz-resize: 10px;
-    --sz-border: 1px;
+    --sz-border: 2px;
 }
 
 main {
@@ -46,9 +46,9 @@ canvas {
     left: 10px;
     width: 200px;
     height: 300px;
-    border: 1px solid var(--clr-dark);
+    border: var(--sz-border) solid var(--clr-dark);
     border-radius: 7px;
-    /* box-shadow: var(--clr-shadow) 3px 3px 10px; */
+    box-shadow: var(--clr-dark) 2px 2px;
     background-color: var(--clr-light);
     overflow: hidden;
 }
@@ -94,7 +94,7 @@ canvas {
     outline: none;
     border: none;
     font-size: 14px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 .resize {
