@@ -6,45 +6,97 @@
     box-sizing: border-box;
 }
 
-body {
+:root {
+    --clr-light: rgba(255, 255, 255, 1);
+    --clr-dark: rgba(0, 0, 0, 0.2);
+    --clr-text: rgba(0, 0, 0, 1);
+    --clr-bg: white;
+    --clr-shadow: rgba(0, 0, 0, 0.15);
+    --clr-icon: rgba(0, 0, 0, 0.4);
+    --sz-menu-height: 22px;
+    --sz-resize: 20px;
+    --sz-border: 2px;
+}
+
+main {
     height: 100vh;
-    width: 100vh;
-    background-color: #272727;
+    width: 100vw;
+    background-color: var(--clr-bg);
+}
+
+.board {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    bottom: 10px;
+    right: 10px;
 }
 
 .note {
     position: absolute;
     top: 10px;
-    left: 600px;
-    width: 500px;
+    left: 20px;
+    width: 200px;
     height: 300px;
-    border: 1.5px solid white;
+    border: var(--sz-border) solid var(--clr-dark);
+    border-radius: 9px;
+    /* box-shadow: var(--clr-shadow) 3px 3px 10px; */
+    background-color: var(--clr-light);
+    overflow: hidden;
 }
 
 .menu {
     position: absolute;
     top: 0;
-    height: 25px;
+    height: var(--sz-menu-height);
     width: 100%;
-    border-bottom: 1.5px solid white;
+    /* border-bottom: var(--sz-border) solid var(--clr-dark); */
 }
 
 .close {
+    display: flex;
     position: absolute;
+    justify-content: center;
+    align-items: center;
     top: 0;
     left: 0;
     height: 100%;
-    width: 20px;
-    text-align: center;
-    color: white;
+    width: var(--sz-menu-height);
+    color: var(--clr-icon);
+    background-color: var(--clr-dark);
+}
+
+.text {
+    position: absolute;
+    top: var(--sz-menu-height);
+    width: 100%;
+    height: calc(100% - var(--sz-menu-height));
+    resize: none;
+    background-color: transparent;
+    color: var(--clr-text);
+    padding: 8px;
+    outline: none;
+    border: none;
+    font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 .resize {
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 20px;
-    height: 20px;
-    border-left: 1.5px solid white;
-    border-top: 1.5px solid white;
+    width: var(--sz-resize);
+    height: var(--sz-resize);
+    /* border-left: var(--sz-border) solid var(--clr-dark);
+    border-top: var(--sz-border) solid var(--clr-dark); */
+}
+
+.selection {
+    position: absolute;
+    background-color: rgba(135, 206, 250, 0.3);
+    /* outline: blue solid 1px; */
+    pointer-events: none;
+    height: 0px;
+    width: 0px;
+    z-index: 100;
 }
