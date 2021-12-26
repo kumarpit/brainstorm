@@ -14,6 +14,9 @@ let isMouseDown = false;
 let isMovingCard = false;
 let isResizingCard = false;
 
+let noteList = [];
+
+
 selection = document.getElementById("selection");
 board = document.getElementById("board");
 
@@ -45,7 +48,10 @@ document.addEventListener('mouseup', e => {
 
     board.style.cursor = 'default';
 
-    new Note(1, {x: offsetXStart, y: offsetYStart}, {width: width, height: height}, "...");
+    if (!isMovingCard && !isResizingCard) {
+        let note = new Note(Date.now(), {x: offsetXStart, y: offsetYStart}, {width: width, height: height}, "");
+        noteList.push(note);
+    }
 })
 
 
@@ -62,11 +68,14 @@ document.addEventListener('mousemove', e => {
 class Note {
     constructor(id, position, size, content) {
         this.id = id;
+        this.position = position;
         this.top = `${position.y}px`;
         this.left = `${position.x}px`;
         this.height = `${size.height}px`;
         this.width = `${size.width}px`;
         this.content = content;
+        this.isMoving = false;
+        this.isResizing = false;
         this.createNote();
     }
 
@@ -79,23 +88,11 @@ class Note {
         this.div.style.height = this.height;
         this.div.style.width = this.width;
 
-        this.menu = document.createElement('div');
-        this.menu.classList.add('menu');
+        window.addEventListener('mouseup', this.mouseUp.bind(this));
 
-        this.close = document.createElement('div');
-        this.close.classList.add('close')
-
-        this.icon = document.createElement('i');
-        this.icon.classList.add('fas', 'fa-times');
-        
-        this.close.appendChild(this.icon);
-        this.menu.appendChild(this.close);
-
-        this.textarea = document.createElement('textarea');
-        this.textarea.classList.add('text');
-
-        this.resize = document.createElement('div');
-        this.resize.classList.add('resize');
+        this.createMenu();
+        this.createTextArea();
+        this.createResize();
 
         this.div.appendChild(this.menu);
         this.div.appendChild(this.textarea);
@@ -103,4 +100,92 @@ class Note {
 
         board.appendChild(this.div);
     }
+
+    createMenu() {
+        this.menu = document.createElement('div');
+        this.menu.classList.add('menu');
+        this.menu.addEventListener('mousedown', this.moveNoteInit.bind(this));
+
+        this.close = document.createElement('div');
+        this.close.classList.add('close')
+        this.close.addEventListener('click', this.deleteNote.bind(this));
+
+        this.icon = document.createElement('i');
+        this.icon.classList.add('fas', 'fa-times');
+        
+        this.close.appendChild(this.icon);
+        this.menu.appendChild(this.close);
+    }
+
+    createTextArea() {
+        this.textarea = document.createElement('textarea');
+        this.textarea.classList.add('text');
+        this.textarea.value = this.content;
+        this.textarea.addEventListener('keyup', this.updateText.bind(this));
+    }
+
+    createResize() {
+        this.resize = document.createElement('div');
+        this.resize.classList.add('resize');
+        this.resize.addEventListener('mousedown', this.resizeNoteInit.bind(this));
+    }
+
+    moveNoteInit(e) {
+        isMovingCard = true;
+        this.isMoving = true;
+
+        this.menu.style.cursor = 'grabbing';
+        this.menu.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'
+
+        this.deltaX = e.clientX - this.position.x;
+        this.deltaY = e.clientY - this.position.y;
+    }
+
+    moveNote(e) {
+        this.div.style.top = `${e.clientY - this.deltaY}px`;
+        this.div.style.left = `${e.clientX - this.deltaX}px`;
+    }
+
+    resizeNoteInit(e) {
+        isResizingCard = true;
+        this.isResizing = true;
+    }
+
+    resizeNote(e) {
+        let nWidth = e.clientX - this.position.x;
+        let nHeight = e.clientY - this.position.y;
+
+        this.div.style.width = `${nWidth}px`
+        this.div.style.height = `${nHeight}px`
+    }
+
+    mouseUp(e) {
+        isMovingCard = false;
+        isResizingCard = false;
+        this.isMoving = false;
+        this.isResizing = false;
+
+        this.menu.style.backgroundColor = 'transparent';
+        this.menu.style.cursor = 'grab';
+    }
+
+    updateText() {
+        this.content = this.textarea.value;
+    }
+
+    deleteNote() {
+        this.div.remove();
+    }
 }
+
+window.addEventListener('mousemove', e => {
+    for (let i = 0; i < noteList.length; i++) {
+        if (noteList[i].isMoving) {
+            noteList[i].moveNote(e);
+        }
+
+        if (noteList[i].isResizing) {
+            noteList[i].resizeNote(e);
+        }
+    }
+})

@@ -8,13 +8,13 @@
 
 :root {
     --clr-light: rgba(255, 255, 255, 1);
-    --clr-dark: rgba(0, 0, 0, 0.2);
+    --clr-dark: rgba(0, 0, 0, 1);
     --clr-text: rgba(0, 0, 0, 1);
     --clr-bg: white;
-    --clr-shadow: rgba(0, 0, 0, 0.15);
-    --clr-icon: rgba(0, 0, 0, 0.5);
+    /* --clr-shadow: rgba(0, 0, 0, 0.15); */
+    --clr-icon: rgba(0, 0, 0, 1);
     --sz-menu-height: 22px;
-    --sz-resize: 20px;
+    --sz-resize: 10px;
     --sz-border: 2px;
 }
 
@@ -50,7 +50,11 @@ main {
     top: 0;
     height: var(--sz-menu-height);
     width: 100%;
-    /* border-bottom: var(--sz-border) solid var(--clr-dark); */
+    border-bottom: var(--sz-border) solid var(--clr-dark);
+}
+
+.menu:hover {
+    cursor: grab;
 }
 
 .close {
@@ -63,7 +67,11 @@ main {
     height: 100%;
     width: var(--sz-menu-height);
     color: var(--clr-icon);
-    background-color: var(--clr-dark);
+    /* background-color: var(--clr-dark); */
+}
+
+.close:hover {
+    cursor: pointer;
 }
 
 .text {
@@ -87,8 +95,12 @@ main {
     right: 0;
     width: var(--sz-resize);
     height: var(--sz-resize);
-    /* border-left: var(--sz-border) solid var(--clr-dark);
-    border-top: var(--sz-border) solid var(--clr-dark); */
+    border-left: var(--sz-border) solid var(--clr-dark);
+    border-top: var(--sz-border) solid var(--clr-dark);
+}
+
+.resize:hover {
+    cursor: se-resize;
 }
 
 .selection {
