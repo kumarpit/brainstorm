@@ -11,7 +11,7 @@
     --clr-dark: rgba(0, 0, 0, 1);
     --clr-text: rgba(0, 0, 0, 1);
     --clr-bg: white;
-    /* --clr-shadow: rgba(0, 0, 0, 0.15); */
+    --clr-shadow: rgba(0, 0, 0, 0.15);
     --clr-icon: rgba(0, 0, 0, 1);
     --sz-menu-height: 22px;
     --sz-resize: 10px;
@@ -32,14 +32,22 @@ main {
     right: 10px;
 }
 
+canvas {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    bottom: 10px;
+    right: 10px;
+}
+
 .note {
     position: absolute;
     top: 10px;
-    left: 20px;
+    left: 10px;
     width: 200px;
     height: 300px;
     border: var(--sz-border) solid var(--clr-dark);
-    border-radius: 9px;
+    border-radius: 7px;
     /* box-shadow: var(--clr-shadow) 3px 3px 10px; */
     background-color: var(--clr-light);
     overflow: hidden;
