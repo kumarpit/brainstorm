@@ -7,12 +7,12 @@
 }
 
 :root {
-    --clr-light: rgba(255, 255, 255, 1);
-    --clr-dark: rgba(0, 0, 0, 0.7);
+    --clr-light: hsl(0, 0%, 100%); /*#111 DARK MODE, NO SHADOW*/
+    --clr-dark: rgba(0, 0, 0, 0.9);
     --clr-text: rgba(0, 0, 0, 1);
-    --clr-bg: white;
+    --clr-bg: #f2f2f2; /*#222 DARK MODE*/
     --clr-shadow: rgba(0, 0, 0, 0.15);
-    --clr-icon: rgba(0, 0, 0, 0.7);
+    --clr-icon: rgba(0, 0, 0, 0.9);
     --sz-menu-height: 22px;
     --sz-resize: 10px;
     --sz-border: 2px;
@@ -46,9 +46,9 @@ canvas {
     left: 10px;
     width: 200px;
     height: 300px;
-    border: var(--sz-border) solid var(--clr-dark);
+    /* border: var(--sz-border) solid var(--clr-dark); */
     border-radius: 7px;
-    box-shadow: var(--clr-dark) 2px 2px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1px 1px 10px;
     background-color: var(--clr-light);
     overflow: hidden;
 }
@@ -58,7 +58,7 @@ canvas {
     top: 0;
     height: var(--sz-menu-height);
     width: 100%;
-    border-bottom: var(--sz-border) solid var(--clr-dark);
+    /* border-bottom: var(--sz-border) solid var(--clr-dark); */
 }
 
 .menu:hover {

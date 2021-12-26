@@ -48,7 +48,7 @@ document.addEventListener('mouseup', e => {
 
     board.style.cursor = 'default';
 
-    if (!isMovingCard && !isResizingCard) {
+    if (width > 50 && height > 50 && !isMovingCard && !isResizingCard) {
         let note = new Note(Date.now(), {x: offsetXStart, y: offsetYStart}, {width: width, height: height}, "");
         noteList.push(note);
     }
@@ -139,11 +139,16 @@ class Note {
 
         this.deltaX = e.clientX - this.position.x;
         this.deltaY = e.clientY - this.position.y;
+
+        console.log(this.deltaX, this.deltaY);
     }
 
     moveNote(e) {
         this.div.style.top = `${e.clientY - this.deltaY}px`;
         this.div.style.left = `${e.clientX - this.deltaX}px`;
+        
+        this.position.x = e.clientX - this.deltaX;
+        this.position.y = e.clientY - this.deltaY;
     }
 
     resizeNoteInit(e) {
@@ -182,10 +187,12 @@ window.addEventListener('mousemove', e => {
     for (let i = 0; i < noteList.length; i++) {
         if (noteList[i].isMoving) {
             noteList[i].moveNote(e);
+            break;
         }
 
         if (noteList[i].isResizing) {
             noteList[i].resizeNote(e);
+            break;
         }
     }
 })
