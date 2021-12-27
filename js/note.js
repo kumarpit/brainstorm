@@ -56,7 +56,7 @@ class Note {
         this.icon.classList.add('fas', 'fa-times');
 
         this.optionIcon = document.createElement('i');
-        this.optionIcon.classList.add('fas', 'fa-chevron-down');
+        this.optionIcon.classList.add('far', 'fa-caret-square-down');
         
         this.options.appendChild(this.optionIcon);
         this.close.appendChild(this.icon);
