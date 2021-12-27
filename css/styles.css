@@ -7,7 +7,7 @@
 }
 
 :root {
-    --clr-light: rgba(255, 255, 255, 0.9); /*#111 DARK MODE, NO SHADOW*/
+    --clr-light: rgba(255, 255, 255, 1); /*#111 DARK MODE, NO SHADOW*/
     --clr-dark: rgba(0, 0, 0, 0.9);
     --clr-text: rgba(0, 0, 0, 1);
     --clr-bg: #f2f2f2; /*#222 DARK MODE*/
@@ -102,7 +102,7 @@ canvas {
 .text {
     position: absolute;
     top: var(--sz-menu-height);
-    width: 100%;
+    width: 99%;
     height: calc(100% - var(--sz-menu-height));
     resize: none;
     background-color: transparent;
@@ -112,6 +112,18 @@ canvas {
     border: none;
     font-size: 14px;
     font-family: 'Roboto', sans-serif;
+}
+
+textarea::-webkit-scrollbar {
+    width: 2px;
+}
+
+textarea::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background-color: var(--clr-dark);
 }
 
 .resize {
