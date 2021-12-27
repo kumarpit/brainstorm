@@ -1,3 +1,7 @@
+let checkIcon = document.createElement('i');
+checkIcon.classList.add('fas', 'fa-check');
+
+
 class Note {
     constructor(id, position, size, content) {
         this.id = id;
@@ -10,6 +14,7 @@ class Note {
         this.isMoving = false;
         this.isResizing = false;
         this.colorOptionOpen = false;
+        this.colorOptions = [];
         this.createNote();
     }
 
@@ -66,16 +71,18 @@ class Note {
         this.colorOptionBar = document.createElement('div');
         this.colorOptionBar.classList.add('modal');
 
-        let nullIcon = document.createElement('i');
-        nullIcon.classList.add('fas', 'fa-ban');
+        // checkIcon = document.createElement('i');
+        // checkIcon.classList.add('fas', 'fa-check');
         
         for (let i = 0; i <= 5; i++) {
             let color = document.createElement('div');
             color.classList.add('color', 'c'+i.toString());
 
-            if (i == 0) color.appendChild(nullIcon);
+            if (i == 0) color.appendChild(checkIcon);
+
             color.addEventListener('click', this.getBgColor.bind(this));
             this.colorOptionBar.appendChild(color);
+            this.colorOptions.push(color);
         }
     }
 
@@ -101,14 +108,11 @@ class Note {
 
         this.deltaX = e.clientX - this.position.x;
         this.deltaY = e.clientY - this.position.y;
-
-        console.log(this.deltaX, this.deltaY);
     }
 
     moveNote(e) {
         this.div.style.top = `${e.clientY - this.deltaY}px`;
         this.div.style.left = `${e.clientX - this.deltaX}px`;
-
         this.position.x = e.clientX - this.deltaX;
         this.position.y = e.clientY - this.deltaY;
     }
@@ -121,7 +125,6 @@ class Note {
     resizeNote(e) {
         let nWidth = e.clientX - this.position.x;
         let nHeight = e.clientY - this.position.y;
-
         this.div.style.width = `${nWidth}px`
         this.div.style.height = `${nHeight}px`
     }
@@ -131,7 +134,6 @@ class Note {
         isResizingCard = false;
         this.isMoving = false;
         this.isResizing = false;
-
         this.menu.style.backgroundColor = 'transparent';
         this.menu.style.cursor = 'grab';
     }
@@ -147,12 +149,19 @@ class Note {
     toggleOptionsModal() {
         this.colorOptionOpen ? this.colorOptionBar.style.display = 'none' : 
         this.colorOptionBar.style.display = 'flex';
-
         this.colorOptionOpen = !this.colorOptionOpen;
     }
 
     getBgColor(e) {
-        this.div.style.backgroundColor = window.getComputedStyle(e.target).backgroundColor
+        this.div.style.backgroundColor = window.getComputedStyle(e.target).backgroundColor;
+
+        for (let i = 0; i < this.colorOptions.length; i++) {
+            if (this.colorOptions[i].firstChild) {
+                this.colorOptions[i].removeChild(this.colorOptions[i].firstChild);
+            }
+        }
+
+        e.target.appendChild(checkIcon);
         this.toggleOptionsModal();
     }
 }

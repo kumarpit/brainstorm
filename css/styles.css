@@ -18,10 +18,13 @@
     --sz-border: 2px;
 }
 
+body {
+    background-color: var(--clr-bg);
+}
+
 main {
     height: 100vh;
     width: 100vw;
-    background-color: var(--clr-bg);
 }
 
 .board {
@@ -154,6 +157,10 @@ textarea::-webkit-scrollbar-thumb {
 }
 
 .color {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--clr-icon);
     width: 30px;
     height: 30px;
 }
@@ -183,17 +190,16 @@ textarea::-webkit-scrollbar-thumb {
 }
 
 .c0 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--clr-icon);
     background-color: var(--clr-light);
+}
+
+.fa-check {
+    pointer-events: none;
 }
 
 .selection {
     position: absolute;
     background-color: rgba(135, 206, 250, 0.3);
-    /* outline: blue solid 1px; */
     pointer-events: none;
     height: 0px;
     width: 0px;
