@@ -137,6 +137,7 @@ class Note {
 
     updateText() {
         this.content = this.textarea.value;
+        updateLocalStorage();
     }
 
     deleteNote() {
