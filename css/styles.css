@@ -7,7 +7,7 @@
 }
 
 :root {
-    --clr-light: hsl(0, 0%, 100%); /*#111 DARK MODE, NO SHADOW*/
+    --clr-light: rgba(255, 255, 255, 0.9); /*#111 DARK MODE, NO SHADOW*/
     --clr-dark: rgba(0, 0, 0, 0.9);
     --clr-text: rgba(0, 0, 0, 1);
     --clr-bg: #f2f2f2; /*#222 DARK MODE*/
@@ -44,7 +44,7 @@ canvas {
     position: absolute;
     top: 10px;
     left: 10px;
-    width: 200px;
+    width: 300px;
     height: 300px;
     /* border: var(--sz-border) solid var(--clr-dark); */
     border-radius: 7px;
@@ -58,6 +58,7 @@ canvas {
     top: 0;
     height: var(--sz-menu-height);
     width: 100%;
+    background-color: transparent;
     /* border-bottom: var(--sz-border) solid var(--clr-dark); */
 }
 
@@ -76,6 +77,22 @@ canvas {
     width: var(--sz-menu-height);
     color: var(--clr-icon);
     /* background-color: var(--clr-dark); */
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 25px;
+    right: 0;
+    top: 0;
+    color: var(--clr-icon);
+    height: 100%;
+}
+
+.options:hover {
+    cursor: pointer;
 }
 
 .close:hover {
@@ -109,6 +126,56 @@ canvas {
 
 .resize:hover {
     cursor: se-resize;
+}
+
+.modal {
+    display: none;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    position: absolute;
+    right: 0;
+    top: var(--sz-menu-height);
+    width: 100%;
+    max-width: max-content;
+    background-color: transparent;
+    z-index: 100;
+}
+
+.color {
+    width: 30px;
+    height: 30px;
+}
+
+.color:hover {
+    cursor: pointer;
+}
+
+.c1 {
+    background-color: paleturquoise;
+}
+
+.c2 {
+    background-color: cornflowerblue;
+}
+
+.c3 {
+    background-color: lightgreen;
+}
+
+.c4 {
+    background-color: palegoldenrod;
+}
+
+.c5 {
+    background-color: pink;
+}
+
+.c0 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--clr-icon);
+    background-color: var(--clr-light);
 }
 
 .selection {
