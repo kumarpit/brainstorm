@@ -1,7 +1,6 @@
 // add a voting system
 //by default the selection is a note, clicking alt+t will change the selected note to code block, todo list, graph etc
 // for now disable switching between notes/block/list with code in them
-//look at bookmarks for design inspo
 
 let offsetXStart = 0;
 let offsetYStart = 0;
@@ -14,11 +13,12 @@ let isMouseDown = false;
 let isMovingCard = false;
 let isResizingCard = false;
 
+let localStorageNotes = JSON.parse(localStorage.getItem('notes')) || [];
 let noteList = [];
-
 
 selection = document.getElementById("selection");
 board = document.getElementById("board");
+emptyMsg = document.getElementById("empty");
 
 document.addEventListener('mousedown', e => {
     isMouseDown = true;
@@ -51,6 +51,8 @@ document.addEventListener('mouseup', e => {
     if (width > 50 && height > 50 && !isMovingCard && !isResizingCard) {
         let note = new Note(Date.now(), {x: offsetXStart, y: offsetYStart}, {width: width, height: height}, "");
         noteList.push(note);
+        emptyMsg.style.opacity = 0;
+        updateLocalStorage();
     }
 })
 
@@ -78,3 +80,17 @@ window.addEventListener('mousemove', e => {
         }
     }
 })
+
+function updateLocalStorage(){  
+    if (localStorage.getItem('notes') != JSON.stringify(noteList)) {
+        localStorage.setItem('notes', JSON.stringify(noteList)); 
+    } 
+};
+
+
+for (const note of localStorageNotes) {
+    let storedNote = new Note(note.id, note.position, note.size, note.content, note.currentColor, note.currentColorVal);
+    noteList.push(storedNote);
+}
+
+if (localStorageNotes.length == 0) emptyMsg.style.opacity = 1;

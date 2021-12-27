@@ -1,16 +1,15 @@
 class Note {
-    constructor(id, position, size, content) {
+    constructor(id, position, size, content, color = "", colorVal = 0) {
         this.id = id;
         this.position = position;
-        this.top = `${position.y}px`;
-        this.left = `${position.x}px`;
-        this.height = `${size.height}px`;
-        this.width = `${size.width}px`;
+        this.size = size;
         this.content = content;
         this.isMoving = false;
         this.isResizing = false;
         this.colorOptionOpen = false;
         this.colorOptions = [];
+        this.currentColor = color;
+        this.currentColorVal = colorVal;
         this.createNote();
     }
 
@@ -18,10 +17,12 @@ class Note {
         this.div = document.createElement('div');
         this.div.classList.add('note');
         
-        this.div.style.top = this.top;
-        this.div.style.left = this.left;
-        this.div.style.height = this.height;
-        this.div.style.width = this.width;
+        this.div.style.top = `${this.position.y}px`;
+        this.div.style.left = `${this.position.x}px`;
+        this.div.style.height = `${this.size.height}px`;
+        this.div.style.width = `${this.size.width}px`;
+
+        if (this.currentColor != "") this.div.style.backgroundColor = this.currentColor;
 
         window.addEventListener('mouseup', this.mouseUp.bind(this));
 
@@ -74,7 +75,7 @@ class Note {
             let color = document.createElement('div');
             color.classList.add('color', 'c'+i.toString());
 
-            if (i == 0) color.appendChild(checkIcon);
+            if (i == this.currentColorVal) color.appendChild(checkIcon);
 
             color.addEventListener('click', this.getBgColor.bind(this));
             this.colorOptionBar.appendChild(color);
@@ -87,6 +88,7 @@ class Note {
         this.textarea.classList.add('text');
         this.textarea.value = this.content;
         this.textarea.addEventListener('keyup', this.updateText.bind(this));
+        this.textarea.addEventListener('blur', updateLocalStorage);
     }
 
     createResize() {
@@ -100,7 +102,6 @@ class Note {
         this.isMoving = true;
 
         this.menu.style.cursor = 'grabbing';
-        // this.menu.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'
 
         this.deltaX = e.clientX - this.position.x;
         this.deltaY = e.clientY - this.position.y;
@@ -119,10 +120,10 @@ class Note {
     }
 
     resizeNote(e) {
-        let nWidth = e.clientX - this.position.x;
-        let nHeight = e.clientY - this.position.y;
-        this.div.style.width = `${nWidth}px`
-        this.div.style.height = `${nHeight}px`
+        this.size.width = e.clientX - this.position.x;
+        this.size.height = e.clientY - this.position.y;
+        this.div.style.width = `${this.size.width}px`
+        this.div.style.height = `${this.size.height}px`
     }
 
     mouseUp(e) {
@@ -130,8 +131,8 @@ class Note {
         isResizingCard = false;
         this.isMoving = false;
         this.isResizing = false;
-        this.menu.style.backgroundColor = 'transparent';
         this.menu.style.cursor = 'grab';
+        updateLocalStorage();
     }
 
     updateText() {
@@ -139,7 +140,13 @@ class Note {
     }
 
     deleteNote() {
+        noteList = noteList.filter(note => {
+            return note.id != this.id
+        })
+
+        updateLocalStorage();
         this.div.remove();
+        if (noteList.length == 0) emptyMsg.style.opacity = 1;
     }
 
     toggleOptionsModal() {
@@ -149,7 +156,8 @@ class Note {
     }
 
     getBgColor(e) {
-        this.div.style.backgroundColor = window.getComputedStyle(e.target).backgroundColor;
+        this.currentColor = window.getComputedStyle(e.target).backgroundColor;
+        this.div.style.backgroundColor = this.currentColor;
 
         for (let i = 0; i < this.colorOptions.length; i++) {
             if (this.colorOptions[i].firstChild) {
@@ -157,10 +165,15 @@ class Note {
             }
         }
 
+        this.currentColorVal = parseInt(e.target.classList[1].slice(-1));
+
         let checkIcon = document.createElement('i');
         checkIcon.classList.add('fas', 'fa-check');
 
         e.target.appendChild(checkIcon);
+        updateLocalStorage();
+
         this.toggleOptionsModal();
     }
 }
+
