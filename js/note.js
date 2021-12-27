@@ -1,7 +1,3 @@
-let checkIcon = document.createElement('i');
-checkIcon.classList.add('fas', 'fa-check');
-
-
 class Note {
     constructor(id, position, size, content) {
         this.id = id;
@@ -71,8 +67,8 @@ class Note {
         this.colorOptionBar = document.createElement('div');
         this.colorOptionBar.classList.add('modal');
 
-        // checkIcon = document.createElement('i');
-        // checkIcon.classList.add('fas', 'fa-check');
+        let checkIcon = document.createElement('i');
+        checkIcon.classList.add('fas', 'fa-check');
         
         for (let i = 0; i <= 5; i++) {
             let color = document.createElement('div');
@@ -160,6 +156,9 @@ class Note {
                 this.colorOptions[i].removeChild(this.colorOptions[i].firstChild);
             }
         }
+
+        let checkIcon = document.createElement('i');
+        checkIcon.classList.add('fas', 'fa-check');
 
         e.target.appendChild(checkIcon);
         this.toggleOptionsModal();
