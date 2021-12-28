@@ -1,33 +1,48 @@
-const canvas = document.querySelector('canvas');
-const ctx = canvas.getContext('2d');
-const dpr = window.devicePixelRatio || 1;
+let drawColor = '#000';
+let drawWidth = 2;
+let canDraw = false;
+let isDrawing = false;
 
-let width;
-let height;
+const canvas = document.getElementById('canvas')
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-function setDimensions() {
-    canvas.width = width = canvas.getBoundingClientRect().width * dpr;
-    canvas.height = height = canvas.getBoundingClientRect().height * dpr;
-    canvas.style.width = 'calc(100% - 10px)';
-    canvas.style.height = 'calc(100% - 10px)';
+let ctx = canvas.getContext('2d');
+ctx.fillStyle = '#f2f2f2';
+ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    drawGrid();
+const drawIcon = document.getElementById('draw');
+drawIcon.addEventListener('click', e => {
+    canDraw = !canDraw
+    canDraw ? drawIcon.style.opacity = 1 : drawIcon.style.opacity = 0.4;
+    isDrawing = false;
+});
+
+document.addEventListener('mousedown', toggleDraw);
+document.addEventListener('mousemove', draw);
+
+function toggleDraw(e) {
+    if (canDraw && !isDrawing) {
+        console.log('starting to draw')
+        ctx.beginPath();
+        ctx.moveTo(e.clientX, e.clientY);
+    }
+
+    if (canDraw && isDrawing) {
+        console.log('stopping to draw')
+        ctx.closePath();
+    }
+
+    if (canDraw) isDrawing = !isDrawing;
 }
 
-function drawGrid() {
-    ctx.fillStyle = 'transparent';
-    ctx.fillRect(0, 0, width, height);
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
-
-    for (let x = (width / 100) / 2; x <= width; x += Math.ceil(width / 100) * 1.5) {
-        for (let y = (height / 100) / 2; y <= height; y += Math.ceil(height / 100) * 1.5) {
-            ctx.beginPath();
-            ctx.arc(x, y, 1.5, 0, Math.PI * 2, false);
-            ctx.fill();
-            ctx.closePath();
-        }
+function draw(e) {
+    if (isDrawing) {
+        ctx.lineTo(e.clientX, e.clientY);
+        ctx.strokeStyle = drawColor;
+        ctx.lineWidth = drawWidth;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.stroke();
     }
 }
-
-// setDimensions();
-// window.addEventListener('resize', setDimensions);

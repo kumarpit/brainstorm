@@ -1,0 +1,53 @@
+.modal {
+    display: none;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    position: absolute;
+    right: 0;
+    top: var(--sz-menu-height);
+    width: 100%;
+    max-width: max-content;
+    background-color: transparent;
+    z-index: 10;
+}
+
+.color {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--clr-icon);
+    width: 30px;
+    height: 30px;
+}
+
+.color:hover {
+    cursor: pointer;
+}
+
+.c1 {
+    background-color: paleturquoise;
+}
+
+.c2 {
+    background-color: cornflowerblue;
+}
+
+.c3 {
+    background-color: lightgreen;
+}
+
+.c4 {
+    background-color: palegoldenrod;
+}
+
+.c5 {
+    background-color: pink;
+}
+
+.c0 {
+    background-color: var(--clr-light);
+}
+
+.fa-check {
+    pointer-events: none;
+}

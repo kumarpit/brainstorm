@@ -6,25 +6,32 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="./css/styles.css">
+        <link rel="stylesheet" href="./css/board.css">
+        <link rel="stylesheet" href="./css/init.css">
+        <link rel="stylesheet" href="./css/modal.css">
+        <link rel="stylesheet" href="./css/note.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">    </head>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">    
+    </head>
+    
     <body>
         <main>
-            <canvas></canvas>
+            <canvas id="canvas"></canvas>
             <section class="board" id="board">
                 <div class="selection" id="selection"></div>
                 <p class="empty-msg" id="empty">click and drag to add a note</p>
+                <i class="fas fa-pen-square" id="draw"></i>
 
                 <!-- <div class="note">
-                    <div class="menu">
+                    <div class="menu-container">
                         <div class="close">
                             <i class="fas fa-times"></i>
                         </div>
+                        <div class="menu"></div>
                         <div class="options">
-                            <i class="fas fa-chevron-down"></i>
+                            <i class="far fa-caret-square-down"></i>
                         </div>
                     </div>
                     <div class="modal">

@@ -1,0 +1,30 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-light: rgba(255, 255, 255, 1); /*#111 DARK MODE, NO SHADOW*/
+    --clr-dark: rgba(0, 0, 0, 0.9);
+    --clr-text: rgba(0, 0, 0, 1);
+    --clr-bg: #f2f2f2; /*#222 DARK MODE*/
+    --clr-shadow: rgba(0, 0, 0, 0.15);
+    --clr-icon: rgba(0, 0, 0, 0.9);
+    --sz-menu-height: 22px;
+    --sz-option-width: 25px;
+    --sz-resize: 10px;
+    --sz-border: 2px;
+}
+
+body {
+    overflow: hidden;
+    background-color: var(--clr-bg);
+}
+
+main {
+    height: 100vh;
+    width: 100vw;
+}

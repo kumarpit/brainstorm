@@ -1,0 +1,106 @@
+.note {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 300px;
+    height: 300px;
+    /* border: var(--sz-border) solid var(--clr-dark); */
+    border-radius: 7px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1px 1px 10px;
+    background-color: var(--clr-light);
+    overflow: hidden;
+}
+
+.menu-container {
+    display: flex;
+    justify-content: center;    
+    position: absolute;
+    top: 0;
+    height: var(--sz-menu-height);
+    width: 100%;
+    background-color: transparent;
+    /* border-bottom: var(--sz-border) solid var(--clr-dark); */
+}
+
+.menu {
+    height: var(--sz-menu-height);
+    width: calc(100% - (var(--sz-menu-height) + var(--sz-option-width)));
+}
+
+.menu:hover {
+    cursor: grab;
+}
+
+.close {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: var(--sz-menu-height);
+    color: var(--clr-icon);
+    /* background-color: var(--clr-dark); */
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 25px;
+    right: 0;
+    top: 0;
+    color: var(--clr-icon);
+    height: 100%;
+}
+
+.options:hover {
+    cursor: pointer;
+}
+
+.close:hover {
+    cursor: pointer;
+}
+
+.text {
+    position: absolute;
+    top: var(--sz-menu-height);
+    width: 99%;
+    height: calc(100% - var(--sz-menu-height));
+    resize: none;
+    background-color: transparent;
+    color: var(--clr-text);
+    padding: 8px;
+    outline: none;
+    border: none;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+}
+
+textarea::-webkit-scrollbar {
+    width: 2px;
+}
+
+textarea::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background-color: var(--clr-dark);
+}
+
+.resize {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: var(--sz-resize);
+    height: var(--sz-resize);
+    border-left: var(--sz-border) solid var(--clr-dark);
+    border-top: var(--sz-border) solid var(--clr-dark);
+}
+
+.resize:hover {
+    cursor: se-resize;
+}

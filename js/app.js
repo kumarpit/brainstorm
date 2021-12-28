@@ -1,7 +1,3 @@
-// add a voting system
-//by default the selection is a note, clicking alt+t will change the selected note to code block, todo list, graph etc
-// for now disable switching between notes/block/list with code in them
-
 let offsetXStart = 0;
 let offsetYStart = 0;
 let offsetXCurrent = 0;
@@ -12,6 +8,9 @@ let offsetYEnd = 0;
 let isMouseDown = false;
 let isMovingCard = false;
 let isResizingCard = false;
+// let canDraw = false;
+// let isDrawing = false;
+// let isDrawing = false;
 
 let localStorageNotes = JSON.parse(localStorage.getItem('notes')) || [];
 let noteList = [];

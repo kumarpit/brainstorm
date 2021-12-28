@@ -31,7 +31,7 @@ class Note {
         this.createTextArea();
         this.createResize();
 
-        this.div.appendChild(this.menu);
+        this.div.appendChild(this.menuContainer);
         this.div.appendChild(this.colorOptionBar);
         this.div.appendChild(this.textarea);
         this.div.appendChild(this.resize);
@@ -40,6 +40,9 @@ class Note {
     }
 
     createMenu() {
+        this.menuContainer = document.createElement('div');
+        this.menuContainer.classList.add('menu-container');
+
         this.menu = document.createElement('div');
         this.menu.classList.add('menu');
         this.menu.addEventListener('mousedown', this.moveNoteInit.bind(this));
@@ -60,8 +63,9 @@ class Note {
         
         this.options.appendChild(this.optionIcon);
         this.close.appendChild(this.icon);
-        this.menu.appendChild(this.close);
-        this.menu.appendChild(this.options);
+        this.menuContainer.appendChild(this.close);
+        this.menuContainer.appendChild(this.menu);
+        this.menuContainer.appendChild(this.options);
     }
 
     createColorOptionBar() {
@@ -102,6 +106,7 @@ class Note {
         this.isMoving = true;
 
         this.menu.style.cursor = 'grabbing';
+        // this.menuContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.05)'
 
         this.deltaX = e.clientX - this.position.x;
         this.deltaY = e.clientY - this.position.y;
