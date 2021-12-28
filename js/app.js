@@ -25,7 +25,7 @@ document.addEventListener('mousedown', e => {
     offsetXStart = e.offsetX;
     offsetYStart = e.offsetY;
 
-    if (!isMovingCard && !isResizingCard) {
+    if (!isMovingCard && !isResizingCard && !canDraw) {
         selection.style.top = `${offsetYStart}px`;
         selection.style.left = `${offsetXStart}px`;
         board.style.cursor = 'crosshair';
@@ -47,7 +47,7 @@ document.addEventListener('mouseup', e => {
 
     board.style.cursor = 'default';
 
-    if (width > 50 && height > 50 && !isMovingCard && !isResizingCard) {
+    if (width > 50 && height > 50 && !isMovingCard && !isResizingCard && !canDraw) {
         let note = new Note(Date.now(), {x: offsetXStart, y: offsetYStart}, {width: width, height: height}, "");
         noteList.push(note);
         emptyMsg.style.opacity = 0;
@@ -60,7 +60,7 @@ document.addEventListener('mousemove', e => {
     offsetXCurrent = e.offsetX;
     offsetYCurrent = e.offsetY;
 
-    if (isMouseDown && !isMovingCard && !isResizingCard) {
+    if (isMouseDown && !isMovingCard && !isResizingCard && !canDraw) {
         selection.style.width = `${offsetXCurrent - offsetXStart}px`
         selection.style.height = `${offsetYCurrent - offsetYStart}px`
     }
