@@ -37,6 +37,7 @@ class Note {
         this.div.appendChild(this.resize);
 
         board.appendChild(this.div);
+        initTextarea(this.id)
     }
 
     createMenu() {
@@ -88,11 +89,16 @@ class Note {
     }
 
     createTextArea() {
-        this.textarea = document.createElement('textarea');
+        // this.textarea = document.createElement('textarea');
+        // this.textarea.classList.add('text');
+        
+        this.textarea = document.createElement('div');
+        this.textarea.setAttribute('id', `${this.id}`);
         this.textarea.classList.add('text');
-        this.textarea.value = this.content;
         this.textarea.addEventListener('keyup', this.updateText.bind(this));
-        this.textarea.addEventListener('blur', updateLocalStorage);
+        
+        // this.textarea.value = this.content;
+        // this.textarea.addEventListener('blur', updateLocalStorage);
     }
 
     createResize() {
@@ -106,7 +112,6 @@ class Note {
         this.isMoving = true;
 
         this.menu.style.cursor = 'grabbing';
-        // this.menuContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.05)'
 
         this.deltaX = e.clientX - this.position.x;
         this.deltaY = e.clientY - this.position.y;
@@ -137,12 +142,12 @@ class Note {
         this.isMoving = false;
         this.isResizing = false;
         this.menu.style.cursor = 'grab';
-        updateLocalStorage();
+        // updateLocalStorage();
     }
 
     updateText() {
         this.content = this.textarea.value;
-        updateLocalStorage();
+        // updateLocalStorage();
     }
 
     deleteNote() {
@@ -150,7 +155,7 @@ class Note {
             return note.id != this.id
         })
 
-        updateLocalStorage();
+        // updateLocalStorage();
         this.div.remove();
         if (noteList.length == 0) emptyMsg.style.opacity = 1;
     }
@@ -177,7 +182,7 @@ class Note {
         checkIcon.classList.add('fas', 'fa-check');
 
         e.target.appendChild(checkIcon);
-        updateLocalStorage();
+        // updateLocalStorage();
 
         this.toggleOptionsModal();
     }
