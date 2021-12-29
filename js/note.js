@@ -37,7 +37,10 @@ class Note {
         this.div.appendChild(this.resize);
 
         board.appendChild(this.div);
-        initTextarea(this.id)
+
+        this.editor = initTextarea(this.id);
+        this.editor.root.innerHTML = this.content;
+        this.editor.on('text-change', this.updateText.bind(this));
     }
 
     createMenu() {
@@ -89,16 +92,9 @@ class Note {
     }
 
     createTextArea() {
-        // this.textarea = document.createElement('textarea');
-        // this.textarea.classList.add('text');
-        
         this.textarea = document.createElement('div');
         this.textarea.setAttribute('id', `${this.id}`);
         this.textarea.classList.add('text');
-        this.textarea.addEventListener('keyup', this.updateText.bind(this));
-        
-        // this.textarea.value = this.content;
-        // this.textarea.addEventListener('blur', updateLocalStorage);
     }
 
     createResize() {
@@ -146,7 +142,8 @@ class Note {
     }
 
     updateText() {
-        this.content = this.textarea.value;
+        this.content = this.editor.root.innerHTML;
+        console.log(this.content)
         // updateLocalStorage();
     }
 

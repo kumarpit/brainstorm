@@ -12,8 +12,8 @@
     stroke: var(--clr-dark) !important;
 } */
 
-
 .ql-editor {
+    font-family: 'Roboto', sans-serif !important;
     padding: 5px 10px !important;
 }
 
@@ -28,3 +28,7 @@
 .ql-editor::-webkit-scrollbar-thumb {
     background-color: var(--clr-dark);
 }
+
+/* .ql-container .ql-editor.ql-blank::before{
+    color: rgba(0, 0, 0, 0.2);
+} */

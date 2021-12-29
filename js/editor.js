@@ -2,8 +2,9 @@ function initTextarea(id) {
     var quill = new Quill(`#${id}`, {
         modules: {
             toolbar: [
-              ['bold', 'italic', 'underline'],
-              ['image', 'code-block']
+                // [],
+                [{ 'header': [1, 2, 3, false] }, 'bold', 'italic', 'underline', 'strike', 'image', 'code-block'],
+                // []
             ],
         },
         formats : [
@@ -19,7 +20,7 @@ function initTextarea(id) {
             "script",
             "underline", 
             "blockquote", 
-            // "header",
+            "header",
             "indent", 
             // "list", <-- commented-out to suppress auto bullets
             "align", 
@@ -29,6 +30,10 @@ function initTextarea(id) {
             "image",
             "video"
         ],
+        // placeholder: 'share your idea...',
         theme: 'bubble'
     });
+
+    quill.focus();
+    return quill;
 }
