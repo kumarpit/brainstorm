@@ -37,7 +37,7 @@ class Note {
         this.div.appendChild(this.resize);
 
         board.appendChild(this.div);
-
+    
         this.editor = initTextarea(this.id);
         this.editor.root.innerHTML = this.content;
         this.editor.on('text-change', this.updateText.bind(this));

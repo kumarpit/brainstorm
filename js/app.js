@@ -91,13 +91,15 @@ function updateLocalStorage(){
 
     if (localStorage.getItem('notes') != JSON.stringify(noteData)) {
         localStorage.setItem('notes', JSON.stringify(noteData)); 
+        console.log('new save')
     } 
 };
 
 
 for (const note of localStorageNotes) {
-    let storedNote = new Note(note.id, note.position, note.size, note.content, note.currentColor, note.currentColorVal);
+    let storedNote = new Note(`note_${note.id}`, note.position, note.size, note.content, note.currentColor, note.currentColorVal);
     noteList.push(storedNote);
+    console.log(noteList)
 }
 
 if (localStorageNotes.length == 0) emptyMsg.style.opacity = 1;
