@@ -1,10 +1,9 @@
 function initTextarea(id) {
     var quill = new Quill(`#${id}`, {
         modules: {
+            syntax: true,
             toolbar: [
-                // [],
                 [{ 'header': [1, 2, 3, false] }, 'bold', 'italic', 'underline', 'strike', 'image', 'code-block'],
-                // []
             ],
         },
         formats : [
