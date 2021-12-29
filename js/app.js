@@ -8,9 +8,6 @@ let offsetYEnd = 0;
 let isMouseDown = false;
 let isMovingCard = false;
 let isResizingCard = false;
-// let canDraw = false;
-// let isDrawing = false;
-// let isDrawing = false;
 
 // let localStorageNotes = JSON.parse(localStorage.getItem('notes')) || [];
 let localStorageNotes = [];
