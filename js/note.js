@@ -138,13 +138,13 @@ class Note {
         this.isMoving = false;
         this.isResizing = false;
         this.menu.style.cursor = 'grab';
-        // updateLocalStorage();
+        updateLocalStorage();
     }
 
     updateText() {
         this.content = this.editor.root.innerHTML;
         console.log(this.content)
-        // updateLocalStorage();
+        updateLocalStorage();
     }
 
     deleteNote() {
@@ -152,7 +152,7 @@ class Note {
             return note.id != this.id
         })
 
-        // updateLocalStorage();
+        updateLocalStorage();
         this.div.remove();
         if (noteList.length == 0) emptyMsg.style.opacity = 1;
     }
@@ -179,7 +179,7 @@ class Note {
         checkIcon.classList.add('fas', 'fa-check');
 
         e.target.appendChild(checkIcon);
-        // updateLocalStorage();
+        updateLocalStorage();
 
         this.toggleOptionsModal();
     }

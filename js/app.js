@@ -9,8 +9,7 @@ let isMouseDown = false;
 let isMovingCard = false;
 let isResizingCard = false;
 
-// let localStorageNotes = JSON.parse(localStorage.getItem('notes')) || [];
-let localStorageNotes = [];
+let localStorageNotes = JSON.parse(localStorage.getItem('notes')) || [];
 let noteList = [];
 
 selection = document.getElementById("selection");
@@ -49,7 +48,7 @@ document.addEventListener('mouseup', e => {
         let note = new Note(`note_${Date.now()}`, {x: offsetXStart, y: offsetYStart}, {width: width, height: height}, "");
         noteList.push(note);
         emptyMsg.style.opacity = 0;
-        // updateLocalStorage();
+        updateLocalStorage();
     }
 })
 
@@ -79,8 +78,19 @@ window.addEventListener('mousemove', e => {
 })
 
 function updateLocalStorage(){  
-    if (localStorage.getItem('notes') != JSON.stringify(noteList)) {
-        localStorage.setItem('notes', JSON.stringify(noteList)); 
+    let noteData = noteList.map(note => {
+        return {
+            id: note.id,
+            position: note.position,
+            size: note.size,
+            content: note.content,
+            currentColor: note.currentColor,
+            currentColorVal: note.currentColorVal
+        }
+    })
+
+    if (localStorage.getItem('notes') != JSON.stringify(noteData)) {
+        localStorage.setItem('notes', JSON.stringify(noteData)); 
     } 
 };
 
