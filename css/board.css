@@ -38,11 +38,32 @@ canvas {
     pointer-events: none;
 }
 
-.fa-pen-square {
+.tools {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Roboto', sans-serif;
     position: absolute;
     top: 0;
     right: 0;
+    margin-top: 10px;
+    margin-right: 10px;
+    z-index: 100;
+}
+
+#undo, #clear {
+    opacity: 0.5;
+}
+
+#undo:hover, #clear:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.fa-pen-square {
     opacity: 0.4;
+    margin-left: 5px;
     font-size: 1.5rem;
 }
 

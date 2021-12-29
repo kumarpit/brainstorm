@@ -8,11 +8,9 @@ let offsetYEnd = 0;
 let isMouseDown = false;
 let isMovingCard = false;
 let isResizingCard = false;
-// let canDraw = false;
-// let isDrawing = false;
-// let isDrawing = false;
 
-let localStorageNotes = JSON.parse(localStorage.getItem('notes')) || [];
+// let localStorageNotes = JSON.parse(localStorage.getItem('notes')) || [];
+let localStorageNotes = [];
 let noteList = [];
 
 selection = document.getElementById("selection");
@@ -48,10 +46,10 @@ document.addEventListener('mouseup', e => {
     board.style.cursor = 'default';
 
     if (width > 50 && height > 50 && !isMovingCard && !isResizingCard && !canDraw) {
-        let note = new Note(Date.now(), {x: offsetXStart, y: offsetYStart}, {width: width, height: height}, "");
+        let note = new Note(`note_${Date.now()}`, {x: offsetXStart, y: offsetYStart}, {width: width, height: height}, "");
         noteList.push(note);
         emptyMsg.style.opacity = 0;
-        updateLocalStorage();
+        // updateLocalStorage();
     }
 })
 
