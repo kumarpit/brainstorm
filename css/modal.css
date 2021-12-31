@@ -8,7 +8,7 @@
     top: var(--sz-menu-height);
     width: 100%;
     max-width: max-content;
-    background-color: transparent;
+    background-color: var(--clr-light);
     z-index: 10;
 }
 

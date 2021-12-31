@@ -15,7 +15,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let ctx = canvas.getContext('2d');
-ctx.fillStyle = '#f2f2f2';
+ctx.fillStyle = '#f7f6f3';
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 drawIcon.addEventListener('click', e => {
@@ -81,7 +81,7 @@ function draw(e) {
 function clearCanvas(e) {
     isDrawing = false;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = '#f2f2f2';
+    ctx.fillStyle = '#f7f6f3';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     history = [];
     index = -1;

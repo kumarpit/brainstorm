@@ -76,6 +76,8 @@ class Note {
         this.colorOptionBar = document.createElement('div');
         this.colorOptionBar.classList.add('modal');
 
+        if (this.currentColor !== "") this.colorOptionBar.style.backgroundColor = this.currentColor;
+
         let checkIcon = document.createElement('i');
         checkIcon.classList.add('fas', 'fa-check');
         
