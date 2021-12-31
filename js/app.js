@@ -9,6 +9,8 @@ let isMouseDown = false;
 let isMovingCard = false;
 let isResizingCard = false;
 
+const socket = io('ws://localhost:8080');
+
 let localStorageNotes = JSON.parse(localStorage.getItem('notes')) || [];
 let noteList = [];
 
