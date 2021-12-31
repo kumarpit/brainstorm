@@ -8,8 +8,13 @@
 
 :root {
     --clr-light: rgba(255, 255, 255, 1); /*#111 DARK MODE, NO SHADOW*/
-    --clr-dark: rgba(0, 0, 0, 0.9);
+    --clr-dark: rgba(0, 0, 0, 1);
     --clr-text: rgba(0, 0, 0, 1);
+    --clr-note1: #f3d5c2;
+    --clr-note2: #f1e4c2;
+    --clr-note3: #c2ddd7;
+    --clr-note4: #c2daef;
+    --clr-note5: #d7c9ee;
     --clr-bg: #f2f2f2; /*#222 DARK MODE*/
     --clr-shadow: rgba(0, 0, 0, 0.15);
     --clr-icon: rgba(0, 0, 0, 0.9);

@@ -166,6 +166,7 @@ class Note {
     getBgColor(e) {
         this.currentColor = window.getComputedStyle(e.target).backgroundColor;
         this.div.style.backgroundColor = this.currentColor;
+        this.colorOptionBar.style.backgroundColor = this.currentColor;
 
         for (let i = 0; i < this.colorOptions.length; i++) {
             if (this.colorOptions[i].firstChild) {

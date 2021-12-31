@@ -1,6 +1,7 @@
 .modal {
     display: none;
     flex-direction: row-reverse;
+    gap: 2px;
     flex-wrap: wrap;
     position: absolute;
     right: 0;
@@ -18,6 +19,8 @@
     color: var(--clr-icon);
     width: 30px;
     height: 30px;
+    border: 0.5px solid rgba(0, 0, 0, 0.1);
+    /* box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 10px; */
 }
 
 .color:hover {
@@ -25,23 +28,28 @@
 }
 
 .c1 {
-    background-color: paleturquoise;
+    /* background-color: paleturquoise; */
+    background-color: var(--clr-note1);
 }
 
 .c2 {
-    background-color: cornflowerblue;
+    /* background-color: cornflowerblue; */
+    background-color: var(--clr-note2);
 }
 
 .c3 {
-    background-color: lightgreen;
+    /* background-color: lightgreen; */
+    background-color: var(--clr-note3);
 }
 
 .c4 {
-    background-color: palegoldenrod;
+    /* background-color: palegoldenrod; */
+    background-color: var(--clr-note4);
 }
 
 .c5 {
-    background-color: pink;
+    /* background-color: pink; */
+    background-color: var(--clr-note5);
 }
 
 .c0 {
