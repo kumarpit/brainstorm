@@ -76,7 +76,10 @@ class Note {
         this.colorOptionBar = document.createElement('div');
         this.colorOptionBar.classList.add('modal');
 
-        if (this.currentColor !== "") this.colorOptionBar.style.backgroundColor = this.currentColor;
+        if (this.currentColor !== "") {
+            this.colorOptionBar.style.backgroundColor = this.currentColor;
+            this.colorOptionBar.style.borderColor = this.currentColor;
+        }
 
         let checkIcon = document.createElement('i');
         checkIcon.classList.add('fas', 'fa-check');
@@ -169,6 +172,7 @@ class Note {
         this.currentColor = window.getComputedStyle(e.target).backgroundColor;
         this.div.style.backgroundColor = this.currentColor;
         this.colorOptionBar.style.backgroundColor = this.currentColor;
+        this.colorOptionBar.style.borderColor = this.currentColor;
 
         for (let i = 0; i < this.colorOptions.length; i++) {
             if (this.colorOptions[i].firstChild) {

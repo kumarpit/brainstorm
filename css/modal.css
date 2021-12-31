@@ -1,6 +1,7 @@
 .modal {
     display: none;
     flex-direction: row-reverse;
+    margin-right: 2px;
     gap: 2px;
     flex-wrap: wrap;
     position: absolute;
@@ -9,6 +10,8 @@
     width: 100%;
     max-width: max-content;
     background-color: var(--clr-light);
+    border: 2px solid var(--clr-light);
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 2px;
     z-index: 10;
 }
 
