@@ -1,7 +1,6 @@
 .modal {
     display: none;
     flex-direction: row-reverse;
-    margin-right: 2px;
     gap: 2px;
     flex-wrap: wrap;
     position: absolute;
