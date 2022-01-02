@@ -2,7 +2,7 @@
     display: none;
     flex-direction: row-reverse;
     margin-right: 2px;
-    gap: 2px;
+    /* gap: 2px; */
     flex-wrap: wrap;
     position: absolute;
     right: 0;
@@ -22,7 +22,7 @@
     color: var(--clr-icon);
     width: 30px;
     height: 30px;
-    border: 0.5px solid rgba(0, 0, 0, 0.1);
+    /* border: 0.5px solid rgba(0, 0, 0, 0.2); */
     /* box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 10px; */
 }
 
