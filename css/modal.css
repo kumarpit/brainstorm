@@ -1,17 +1,17 @@
 .modal {
     display: none;
     flex-direction: row-reverse;
+    margin-right: 4px;
     gap: 2px;
     flex-wrap: wrap;
     position: absolute;
     right: 0;
-    top: var(--sz-menu-height);
-    width: 100%;
+    top: calc(var(--sz-menu-height) + 4px);
+    width: calc(100% - 2px);
     max-width: max-content;
     /* background-color: var(--clr-light); */
-    border: 2px solid var(--clr-light);
+    /* border: 2px solid var(--clr-light); */
     border-radius: 4px;
-    /* box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 2px; */
     z-index: 10;
 }
 
