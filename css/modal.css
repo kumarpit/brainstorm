@@ -11,6 +11,7 @@
     max-width: max-content;
     /* background-color: var(--clr-light); */
     border: 2px solid var(--clr-light);
+    border-radius: 4px;
     /* box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 2px; */
     z-index: 10;
 }

@@ -5,7 +5,7 @@
     width: 300px;
     height: 300px;
     border-radius: 7px;
-    /* box-shadow: rgba(0, 0, 0, 0.15) 1px 1px 10px; */
+    /* box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 5px; */
     background-color: var(--clr-light);
     /* overflow: hidden; */
 }
