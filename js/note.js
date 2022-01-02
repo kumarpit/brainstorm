@@ -88,11 +88,10 @@ class Note {
             let color = document.createElement('div');
             color.classList.add('color', 'c'+i.toString());
 
-            if (i == this.currentColorVal) color.appendChild(checkIcon);
-
             color.addEventListener('click', this.getBgColor.bind(this));
-            this.colorOptionBar.appendChild(color);
             this.colorOptions.push(color);
+            this.colorOptionBar.appendChild(color);
+            // if (i !== this.currentColorVal) this.colorOptionBar.appendChild(color);
         }
     }
 
@@ -182,10 +181,10 @@ class Note {
 
         this.currentColorVal = parseInt(e.target.classList[1].slice(-1));
 
-        let checkIcon = document.createElement('i');
-        checkIcon.classList.add('fas', 'fa-check');
+        // let checkIcon = document.createElement('i');
+        // checkIcon.classList.add('fas', 'fa-check');
 
-        e.target.appendChild(checkIcon);
+        // e.target.appendChild(checkIcon);
         updateLocalStorage();
 
         this.toggleOptionsModal();

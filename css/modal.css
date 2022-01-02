@@ -21,10 +21,13 @@
     justify-content: center;
     align-items: center;
     color: var(--clr-icon);
-    width: 30px;
-    height: 30px;
-    border: 3px solid rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
+    width: max-content;
+    padding: 0 5px;
+    height: 20px;
+    /* border: 3px solid rgba(0, 0, 0, 0.1); */
+    font-family: 'Source Sans Pro';
+    font-size: 0.85rem;
+    border-radius: 3px;
     /* box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 10px; */
 }
 
@@ -37,9 +40,17 @@
     background-color: var(--clr-note1);
 }
 
+.c1::before {
+    content: 'orange';
+}
+
 .c2 {
     /* background-color: skyblue; */
     background-color: var(--clr-note2);
+}
+
+.c2::before {
+    content: 'yellow';
 }
 
 .c3 {
@@ -47,9 +58,17 @@
     background-color: var(--clr-note3);
 }
 
+.c3::before {
+    content: 'green';
+}
+
 .c4 {
     /* background-color: palegoldenrod; */
     background-color: var(--clr-note4);
+}
+
+.c4::before {
+    content: 'blue';
 }
 
 .c5 {
@@ -57,8 +76,16 @@
     background-color: var(--clr-note5);
 }
 
+.c5::before {
+    content: 'purple';
+}
+
 .c0 {
     background-color: var(--clr-light);
+}
+
+.c0::before {
+    content: 'white'
 }
 
 .fa-check {
