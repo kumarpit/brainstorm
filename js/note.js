@@ -94,8 +94,8 @@ class Note {
             // if (i !== this.currentColorVal) this.colorOptionBar.appendChild(color);
         }
 
-        this.currentColorVal != 0 ? this.menuContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.035)' :
-        this.menuContainer.style.backgroundColor = 'transparent';
+//         this.currentColorVal != 0 ? this.menuContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.035)' :
+//         this.menuContainer.style.backgroundColor = 'transparent';
     }
 
     createTextArea() {
@@ -185,8 +185,8 @@ class Note {
         // }
 
         this.currentColorVal = parseInt(e.target.classList[1].slice(-1));
-        this.currentColorVal != 0 ? this.menuContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.025)' :
-        this.menuContainer.style.backgroundColor = 'transparent';
+//         this.currentColorVal != 0 ? this.menuContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.025)' :
+//         this.menuContainer.style.backgroundColor = 'transparent';
 
         // let checkIcon = document.createElement('i');
         // checkIcon.classList.add('fas', 'fa-check');
