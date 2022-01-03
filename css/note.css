@@ -18,6 +18,8 @@
     height: var(--sz-menu-height);
     width: 100%;
     background-color: transparent;
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
     /* border-bottom: var(--sz-border) solid var(--clr-dark); */
 }
 

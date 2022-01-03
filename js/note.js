@@ -81,8 +81,8 @@ class Note {
         //     this.colorOptionBar.style.borderColor = this.currentColor;
         // }
 
-        let checkIcon = document.createElement('i');
-        checkIcon.classList.add('fas', 'fa-check');
+        // let checkIcon = document.createElement('i');
+        // checkIcon.classList.add('fas', 'fa-check');
         
         for (let i = 0; i <= 5; i++) {
             let color = document.createElement('div');
@@ -93,6 +93,9 @@ class Note {
             this.colorOptionBar.appendChild(color);
             // if (i !== this.currentColorVal) this.colorOptionBar.appendChild(color);
         }
+
+        this.currentColorVal != 0 ? this.menuContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.035)' :
+        this.menuContainer.style.backgroundColor = 'transparent';
     }
 
     createTextArea() {
@@ -171,16 +174,19 @@ class Note {
     getBgColor(e) {
         this.currentColor = window.getComputedStyle(e.target).backgroundColor;
         this.div.style.backgroundColor = this.currentColor;
+
         // this.colorOptionBar.style.backgroundColor = this.currentColor;
         // this.colorOptionBar.style.borderColor = this.currentColor;
 
-        for (let i = 0; i < this.colorOptions.length; i++) {
-            if (this.colorOptions[i].firstChild) {
-                this.colorOptions[i].removeChild(this.colorOptions[i].firstChild);
-            }
-        }
+        // for (let i = 0; i < this.colorOptions.length; i++) {
+        //     if (this.colorOptions[i].firstChild) {
+        //         this.colorOptions[i].removeChild(this.colorOptions[i].firstChild);
+        //     }
+        // }
 
         this.currentColorVal = parseInt(e.target.classList[1].slice(-1));
+        this.currentColorVal != 0 ? this.menuContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.025)' :
+        this.menuContainer.style.backgroundColor = 'transparent';
 
         // let checkIcon = document.createElement('i');
         // checkIcon.classList.add('fas', 'fa-check');
