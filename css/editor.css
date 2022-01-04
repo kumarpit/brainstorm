@@ -26,7 +26,7 @@
 }
 
 .ql-editor::-webkit-scrollbar-thumb {
-    background-color: var(--clr-icon);
+    background-color: var(--clr-dark);
 }
 
 /* .ql-container .ql-editor.ql-blank::before{
