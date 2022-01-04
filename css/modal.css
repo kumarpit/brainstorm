@@ -19,7 +19,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--clr-icon);
+    color: var(--clr-text);
     width: max-content;
     padding: 0 5px;
     height: 20px;

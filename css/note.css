@@ -57,12 +57,9 @@
     height: 100%;
 }
 
-.options:hover {
+.close:hover, .options:hover {
     cursor: pointer;
-}
-
-.close:hover {
-    cursor: pointer;
+    color: var(--clr-text);
 }
 
 .text {
@@ -86,6 +83,7 @@
 
 .resize:hover {
     cursor: se-resize;
+    border-color: var(--clr-text);
 }
 
 
