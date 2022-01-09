@@ -3,7 +3,7 @@ function initTextarea(id) {
         modules: {
             syntax: true,
             toolbar: [
-                [{ 'header': [1, 2, 3, false] }, 'bold', 'italic', 'underline', 'strike', 'image', 'code-block'],
+                [{ 'header': [1, 2, 3, false] }, 'bold', 'italic', 'underline', 'strike', 'image', 'video', 'code-block'],
             ],
         },
         formats : [

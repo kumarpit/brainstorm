@@ -23,10 +23,20 @@
     <body>
         <main>
             <canvas id="canvas"></canvas>
-            <div class="tools">
-                <p id="undo">undo</p>
-                <p id="clear">clear</p>
-                <i class="fas fa-pen-square" id="draw"></i>
+            <div class="option-bar">
+                <div class="tools">
+                    <p id="undo">undo</p>
+                    <p id="clear">clear</p>
+                    <i class="fas fa-pen-square" id="draw"></i>
+                    <i class="fas fa-share" id="share"></i>
+                </div>
+
+                <div class="collaborate-form" id="form">
+                    <input type='text' id="codeInput">
+                    <button id="joinBoard">join board</button>
+                    <p class="or">or</p>
+                    <button id="createBoard">create code</button>
+                </div>
             </div>
             <section class="board" id="board">
                 <div class="selection" id="selection"></div>
@@ -67,5 +77,6 @@
         <script src="./js/note.js"></script>
         <script src="./js/canvas.js"></script>
         <script src="./js/app.js"></script>
+        <script src="./js/ws.js"></script>
     </body>
 </html>

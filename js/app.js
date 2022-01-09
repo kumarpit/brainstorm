@@ -17,6 +17,7 @@ let noteList = [];
 selection = document.getElementById("selection");
 board = document.getElementById("board");
 emptyMsg = document.getElementById("empty");
+form = document.getElementById("form");
 
 document.addEventListener('mousedown', e => {
     isMouseDown = true;

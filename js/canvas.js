@@ -7,6 +7,7 @@ let history = [];
 let index = -1;
 
 const canvas = document.getElementById('canvas');
+const shareIcon = document.getElementById('share');
 const drawIcon = document.getElementById('draw');
 const undo = document.getElementById('undo');
 const clear = document.getElementById('clear');
@@ -17,6 +18,8 @@ canvas.height = window.innerHeight;
 let ctx = canvas.getContext('2d');
 ctx.fillStyle = '#f2f2f2';
 ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+shareIcon.addEventListener('click', toggleShareIcon)
 
 drawIcon.addEventListener('click', e => {
     canDraw = !canDraw
@@ -49,6 +52,11 @@ window.addEventListener('resize', () => {
     canvas.width = window.innerWidth
     canvas.height = window.innerHeight
 })
+
+function toggleShareIcon(e) {
+    shareIcon.classList.toggle('selected');
+    shareIcon.classList.contains('selected') ? form.style.display = 'flex' : form.style.display = 'none';
+}
 
 function toggleDraw(e) {
     if (canDraw && !isDrawing) {
